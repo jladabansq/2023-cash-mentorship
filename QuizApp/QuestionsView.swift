@@ -24,7 +24,7 @@ struct QuestionsView: View {
                                     Image(systemName: (data.isCorrect) ? "checkmark.circle.fill" : "x.circle.fill")
                                 }
                                 // show header
-                                Text("\(data.question)") // TODO: replace with header
+                                Text("\(data.headline)")
                             }
                         }
                         
