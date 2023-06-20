@@ -18,7 +18,7 @@ struct ContentView: View {
                     Image(systemName: "globe")
                         .imageScale(.large)
                         .foregroundColor(.accentColor)
-                    Text("USA Fact Quiz")
+                    Text("USA Facts Quiz")
                 }
                 
                 // show CTA
