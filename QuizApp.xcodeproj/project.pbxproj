@@ -41,8 +41,6 @@
 		833547B02A3A01DD001DF06D = {
 			isa = PBXGroup;
 			children = (
-				83E913CB2A42637D007A817C /* QuestionView.swift */,
-				83E913C92A426094007A817C /* DataModel.swift */,
 				833547BB2A3A01DD001DF06D /* QuizApp */,
 				833547BA2A3A01DD001DF06D /* Products */,
 			);
@@ -59,6 +57,8 @@
 		833547BB2A3A01DD001DF06D /* QuizApp */ = {
 			isa = PBXGroup;
 			children = (
+				83E913C92A426094007A817C /* DataModel.swift */,
+				83E913CB2A42637D007A817C /* QuestionView.swift */,
 				833547BC2A3A01DD001DF06D /* QuizAppApp.swift */,
 				833547BE2A3A01DD001DF06D /* ContentView.swift */,
 				83E913C72A42600A007A817C /* QuestionsView.swift */,
