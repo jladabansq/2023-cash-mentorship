@@ -8,12 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var data = DataModel.data;
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                // show header
+                HStack {
+                    Image(systemName: "globe")
+                        .imageScale(.large)
+                        .foregroundColor(.accentColor)
+                    Text("USA Fact Quiz")
+                }
+                
+                // show CTA
+                NavigationLink(destination: QuestionsView(data: $data)) {
+                    Text("Let's start!")
+                }
+            }
+            
         }
         .padding()
     }
