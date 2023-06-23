@@ -19,6 +19,7 @@ struct ContentView: View {
                         .imageScale(.large)
                         .foregroundColor(.accentColor)
                     Text("USA Facts Quiz")
+                        .font(.title)
                 }
                 
                 // show CTA
