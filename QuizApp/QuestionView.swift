@@ -14,9 +14,10 @@ struct QuestionView: View {
     var body: some View {
         VStack {
             // show question
-            Text(question.question)
+            Text(question.question).font(.title)
             
             // show choices
+            
             ForEach(question.choices, id: \.self) { choice in
                 Button(choice) {
                     question.isAnswered.toggle() // mark question as answered
@@ -27,6 +28,7 @@ struct QuestionView: View {
                         question.isCorrect.toggle()
                     }
                 }
+                .padding()
             }
             
             // show result
