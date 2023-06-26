@@ -9,7 +9,6 @@ import SwiftUI
 
 struct QuestionView: View {
     @Binding var question: QuestionData
-    @State var userAnswer: String = ""
     
     var body: some View {
         VStack {
@@ -22,9 +21,9 @@ struct QuestionView: View {
                 ForEach(question.choices, id: \.self) { choice in
                     Button(choice) {
                         question.isAnswered.toggle() // mark question as answered
-                        userAnswer = choice
+                        question.userAnswer = choice
                         
-                        if (userAnswer == question.answer) {
+                        if (question.userAnswer == question.answer) {
                             incrementScore()
                             question.isCorrect.toggle()
                         }
@@ -40,13 +39,14 @@ struct QuestionView: View {
                 if (question.isAnswered) {
                     HStack {
                         Image(systemName: question.isCorrect ? "person.fill.checkmark" : "")
-                        Text(question.isCorrect ? "You got it right!" : "You are incorrect.")
+                        Text(question.isCorrect ? "You got it right!" : "\(question.userAnswer) is incorrect.")
                     }
                     .padding(.bottom, 10)
                     .foregroundColor(question.isCorrect ? .green : .red)
                     
                     Text(question.explanation)
                         .fixedSize(horizontal: false, vertical: true)
+                        .multilineTextAlignment(.center)
                 }
             }
             .padding(.top, 30)
