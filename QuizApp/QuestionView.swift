@@ -13,36 +13,46 @@ struct QuestionView: View {
     
     var body: some View {
         VStack {
-            // show question
-            Text(question.question)
-                .font(.title)
-            
-            // show choices
-            ForEach(question.choices, id: \.self) { choice in
-                Button(choice) {
-                    question.isAnswered.toggle() // mark question as answered
-                    userAnswer = choice
-                    
-                    if (userAnswer == question.answer) {
-                        incrementScore()
-                        question.isCorrect.toggle()
+            // show question and choices
+            VStack {
+                Text(question.question)
+                    .font(.title3)
+                    .fixedSize(horizontal: false, vertical: true)
+                
+                ForEach(question.choices, id: \.self) { choice in
+                    Button(choice) {
+                        question.isAnswered.toggle() // mark question as answered
+                        userAnswer = choice
+                        
+                        if (userAnswer == question.answer) {
+                            incrementScore()
+                            question.isCorrect.toggle()
+                        }
                     }
+                    .padding()
                 }
-                .padding()
             }
+            .padding()
+            .border(.gray, width: 3)
             
-            // show result
-            if (question.isAnswered) {
-                if (question.isCorrect) {
-                    Text("You got it right! The correct answer is \(question.answer).")
-                        .foregroundColor(.green)
-                } else {
-                    Text("You are incorrect. The correct answer is \(question.answer).")
-                        .foregroundColor(.red)
+            // show result if answered
+            VStack {
+                if (question.isAnswered) {
+                    HStack {
+                        Image(systemName: question.isCorrect ? "person.fill.checkmark" : "")
+                        Text(question.isCorrect ? "You got it right!" : "You are incorrect.")
+                    }
+                    .padding(.bottom, 10)
+                    .foregroundColor(question.isCorrect ? .green : .red)
+                    
+                    Text(question.explanation)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
             }
+            .padding(.top, 30)
         }
-        .disabled(question.isAnswered) // disable once answered
+        .padding()
+        .disabled(question.isAnswered) // disable if answered
     }
 }
 
