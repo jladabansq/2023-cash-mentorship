@@ -29,6 +29,8 @@ struct QuestionView: View {
                         }
                     }
                     .padding()
+                    .buttonStyle(.bordered)
+                    .foregroundColor(question.isAnswered && choice == question.answer ? .green : .black)
                 }
             }
             .padding()
@@ -44,9 +46,10 @@ struct QuestionView: View {
                     .padding(.bottom, 10)
                     .foregroundColor(question.isCorrect ? .green : .red)
                     
-                    Text(question.explanation)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .multilineTextAlignment(.center)
+                    ScrollView {
+                        Text(question.explanation)
+                        
+                    }
                 }
             }
             .padding(.top, 30)
