@@ -25,7 +25,7 @@ class DataModel: NSObject {
     ]
     
     static let testData: [QuestionData] = [
-        QuestionData(id: 0, headline: "What do you think?", question: "Do you think this is a test?", choices: ["Yes", "No", "Maybe"], answer: "Maybe", explanation: "Can be a test, or not. What else is there to say? I really just need this to be a long line. Hmm. Let's see. What else can I put in here?", isAnswered: true), // TODO: Remove isAnswered once done styling
+        QuestionData(id: 0, headline: "What do you think?", question: "Do you think this is a test?", choices: ["Yes", "No", "Maybe"], answer: "Maybe", explanation: "Can be a test, or not. What else is there to say? I really just need this to be a long line. Hmm. Let's see. What else can I put in here?", isAnswered: true, isCorrect: false), // TODO: Remove isAnswered & isCorrect once done styling
         QuestionData(id: 99, headline: "Is it?", question: "Is this a real question?", choices: ["Yes", "No", "Maybe"], answer: "No", explanation: "This is really just a test!"),
     ]
 }
