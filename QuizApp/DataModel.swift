@@ -13,6 +13,7 @@ struct QuestionData: Hashable, Identifiable {
     var question: String
     var choices: [String]
     var answer: String
+    var userAnswer: String = ""
     var explanation: String
     var isAnswered: Bool = false
     var isCorrect: Bool = false
@@ -25,8 +26,10 @@ class DataModel: NSObject {
     ]
     
     static let testData: [QuestionData] = [
-        QuestionData(id: 0, headline: "What do you think?", question: "Do you think this is a test?", choices: ["Yes", "No", "Maybe"], answer: "Maybe", explanation: "Can be a test, or not. What else is there to say? I really just need this to be a long line. Hmm. Let's see. What else can I put in here?", isAnswered: true, isCorrect: false), // TODO: Remove isAnswered & isCorrect once done styling
-        QuestionData(id: 99, headline: "Is it?", question: "Is this a real question?", choices: ["Yes", "No", "Maybe"], answer: "No", explanation: "This is really just a test!"),
+        // example question where the user answer is incorrect
+        QuestionData(id: 0, headline: "Best NY Pizza Spot", question: "What is the best pizza place in NYC?", choices: ["Lucali", "Dollar pizzas everywhere", "Dominos"], answer: "Dollar pizzas everywhere", userAnswer: "Dominos", explanation: "Dollar pizzas in NYC are the best, although unhealthy. Stores that sell these types of pizzas are everywhere. They usually serve it as a combo with a choice of your beverage.", isAnswered: true, isCorrect: false),
+        // example question where the user answer is correct
+        QuestionData(id: 99, headline: "Most Southern City in CA", question: "What is the most southern city in California?", choices: ["Lost Angeles", "San Francisco", "San Diego"], answer: "San Diego", userAnswer: "San Diego", explanation: "Imperial Beach is located in San Diego. It is the most southwesterly city in the continental United States.", isAnswered: true, isCorrect: true),
     ]
 }
 
