@@ -9,7 +9,6 @@ import SwiftUI
 
 struct QuestionsView: View {
     @Binding var data: [QuestionData]
-    @State var isViewProgress = false
     
     var body: some View {
         VStack {
@@ -31,29 +30,8 @@ struct QuestionsView: View {
                 }
                 .navigationBarTitle("Questions")
             }
-            
-            Button("View My Progress") {
-                isViewProgress.toggle()
-            }
         }
         .navigationBarBackButtonHidden(true)
-        .padding()
-        .sheet(isPresented: $isViewProgress) {
-            VStack {
-                ForEach($data, id: \.self) { $data in
-                    VStack {
-                        HStack(alignment: .bottom) {
-                            Text("Question #\(data.id):")
-                            Text(data.isAnswered ? (data.isCorrect ? "Correct" : "Incorrect") : "Unanswered")
-                        }
-                        
-                    }
-                    .padding()
-                }
-                
-                Text("Current score: \(score)")
-            }
-        }
     }
 }
 
