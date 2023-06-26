@@ -9,36 +9,51 @@ import SwiftUI
 
 struct QuestionsView: View {
     @Binding var data: [QuestionData]
+    @State var isViewProgress = false
     
     var body: some View {
         VStack {
-            
-            VStack {
-                NavigationView {
-                    // show questions
-                    List($data, id: \.self) { $data in
-                        NavigationLink(destination: QuestionView(question: $data)) {
-                            HStack {
-                                // show icon check/x if question is already answered
-                                if (data.isAnswered) {
-                                    Image(systemName: (data.isCorrect) ? "checkmark.circle.fill" : "x.circle.fill")
-                                }
-                                // show header
-                                Text("\(data.headline)")
+            NavigationView {
+                // show questions
+                List($data, id: \.self) { $data in
+                    NavigationLink(destination: QuestionView(question: $data)) {
+                        HStack {
+                            // show icon check/x if question is already answered
+                            if (data.isAnswered) {
+                                Image(systemName: (data.isCorrect) ? "checkmark.square.fill" : "x.square.fill")
+                                    .foregroundColor(data.isCorrect ? .green : .red)
                             }
+                            // show header
+                            Text("\(data.headline)")
+                        }
+                    }
+                    
+                }
+                .navigationBarTitle("Questions")
+            }
+            
+            Button("View My Progress") {
+                isViewProgress.toggle()
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .padding()
+        .sheet(isPresented: $isViewProgress) {
+            VStack {
+                ForEach($data, id: \.self) { $data in
+                    VStack {
+                        HStack(alignment: .bottom) {
+                            Text("Question #\(data.id):")
+                            Text(data.isAnswered ? (data.isCorrect ? "Correct" : "Incorrect") : "Unanswered")
                         }
                         
                     }
-                    .navigationBarTitle("Questions")
+                    .padding()
                 }
                 
-                // show current score
-                Text("Your current score is \(score)")
+                Text("Current score: \(score)")
             }
-            .navigationBarBackButtonHidden(true)
         }
-        .padding()
-        .background(.linearGradient(colors: [Color("CP-DarkGreen"),Color("CP-LightGreen"),Color("CP-Yellow"),Color("CP-Pink")], startPoint: .leading, endPoint: .trailing))
     }
 }
 
