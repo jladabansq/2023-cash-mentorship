@@ -9,6 +9,7 @@ import SwiftUI
 
 struct QuestionsView: View {
     @Binding var data: [QuestionData]
+    @State var isShowScore = false
     
     var body: some View {
         VStack {
@@ -29,6 +30,26 @@ struct QuestionsView: View {
                     
                 }
                 .navigationBarTitle("Questions")
+            }
+            
+            // show progress if all are answered
+            if (answered == data.count) {
+                Button("View my score") {
+                    isShowScore.toggle()
+                }
+                .padding(.bottom, 20)
+                .sheet(isPresented: $isShowScore) {
+                    Text("Final score: \(score) out of \(data.capacity)")
+                        .font(.title3)
+                    
+                    ForEach(data) { question in
+                        HStack {
+                            Text("Question #\(question.id): ")
+                            Text(question.isCorrect ? "Correct" : "Incorrect")
+                                .foregroundColor(question.isCorrect ? .green : .red)
+                        }
+                    }
+                }
             }
         }
         .navigationBarBackButtonHidden(true)
