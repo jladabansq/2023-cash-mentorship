@@ -15,9 +15,10 @@ struct ContentView: View {
             VStack {
                 // show header
                 HStack {
-                    Image(systemName: "globe")
+                    Image(systemName: "map.circle")
                         .imageScale(.large)
-                        .foregroundColor(.accentColor)
+                        .foregroundColor(.green)
+                        .font(.largeTitle)
                     Text("USA Facts Quiz")
                         .font(.title)
                 }
@@ -29,7 +30,6 @@ struct ContentView: View {
             }
             
         }
-        .padding()
     }
 }
 
