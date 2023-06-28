@@ -39,7 +39,7 @@ class DataModel: NSObject {
 }
 
 var score = 0
-var answered = 0
+var answered = 2 // TODO: bring back to 0
 
 func incrementScore() {
     score += 1;
