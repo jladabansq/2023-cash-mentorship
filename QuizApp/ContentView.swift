@@ -11,24 +11,25 @@ struct ContentView: View {
     @State var data = DataModel.data;
     
     var body: some View {
-        NavigationView {
-            VStack {
-                // show header
-                HStack {
-                    Image(systemName: "map.circle")
-                        .imageScale(.large)
-                        .foregroundColor(.green)
-                        .font(.largeTitle)
-                    Text("USA Facts Quiz")
-                        .font(.title)
-                }
-                
-                // show CTA
-                NavigationLink(destination: QuestionsView(data: $data)) {
-                    Text("Let's start!")
+        VStack {
+            NavigationView {
+                ZStack {
+                    LinearGradient(gradient: Gradient(colors: [Color("whiteish"), Color("blueish")]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
+                    VStack {
+                        // show header
+                        Text("USA Facts Quiz")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                            .padding(.bottom, 20)
+                        
+                        // show CTA
+                        NavigationLink(destination: QuestionsView(data: $data)) {
+                            Text("Start")
+                                .font(.title2)
+                        }
+                    }
                 }
             }
-            
         }
     }
 }
