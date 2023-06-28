@@ -28,15 +28,16 @@ struct QuestionView: View {
                             Button(choice) {
                                 question.isAnswered.toggle() // mark question as answered
                                 question.userAnswer = choice
+                                answered += 1
                                 
                                 if (question.userAnswer == question.answer) {
                                     incrementScore()
                                     question.isCorrect.toggle()
                                 }
                             }
-                            .bold(question.isAnswered && choice == question.answer ? true : false)
+                            .italic(question.isAnswered && choice == question.answer ? true : false)
                             .padding()
-                            .foregroundColor(question.isAnswered && choice == question.answer ? Color("cp-green") : .primary) // if that choice is not the correct answer, then put no background
+                            .foregroundColor(Color("AccentColor"))
                         }
                     }
                     .padding()
