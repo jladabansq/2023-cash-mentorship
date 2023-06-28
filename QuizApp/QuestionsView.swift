@@ -21,7 +21,7 @@ struct QuestionsView: View {
                             // show icon check/x if question is already answered
                             if (data.isAnswered) {
                                 Image(systemName: (data.isCorrect) ? "checkmark.square.fill" : "x.square.fill")
-                                    .foregroundColor(data.isCorrect ? .green : .red)
+                                    .foregroundColor(data.isCorrect ? Color("cp-green") : Color("cp-red"))
                             }
                             // show header
                             Text("\(data.headline)")
