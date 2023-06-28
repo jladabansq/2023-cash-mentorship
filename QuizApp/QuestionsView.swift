@@ -46,7 +46,7 @@ struct QuestionsView: View {
                         HStack {
                             Text("Question #\(question.id): ")
                             Text(question.isCorrect ? "Correct" : "Incorrect")
-                                .foregroundColor(question.isCorrect ? .green : .red)
+                                .foregroundColor(question.isCorrect ? Color("cp-green") : Color("cp-red"))
                         }
                     }
                 }
