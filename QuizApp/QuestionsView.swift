@@ -55,14 +55,14 @@ struct QuestionsView: View {
                         .padding()
                         .border(.primary, width: 1)
                         
-                        // greeting
+                        // remark
                         VStack(alignment: .center) {
                             if (score == data.count) {
                                 Text("Congrats on the perfect score! 🎉")
                             } else if (score > (data.count/2)) {
                                 Text("Not bad. 👏")
                             } else {
-                                Text("Better luck next time.")
+                                Text("Hope you learned new stuff today. 😉")
                             }
                         }
                         .padding(.top, 15)
