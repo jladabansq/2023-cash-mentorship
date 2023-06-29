@@ -53,14 +53,12 @@ struct QuestionView: View {
                             .padding(.bottom, 10)
                             .foregroundColor(question.isCorrect ? Color("cp-green") : Color("cp-red"))
                             
-                            ScrollView {
-                                Text(question.explanation)
-                                
-                            }
+                            Text(question.explanation)
                         }
                     }
                     .padding()
                 }
+                .padding()
             }
         }
         .disabled(question.isAnswered) // disable if answered
