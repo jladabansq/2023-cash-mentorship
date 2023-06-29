@@ -22,11 +22,11 @@ struct QuestionData: Hashable, Identifiable {
 
 class DataModel: NSObject {
     static let data: [QuestionData] = [
-        QuestionData(id: 1, headline: "New York's Capital", question: "What is the capital of New York state?", choices: ["New York City", "Albany", "Queens"], answer: "Albany", source: "https://www.albany.org", explanation: "In 1797, Albany became the official capital of New York State. Since then, Albany has been a center for banking, railroads, and international trade."), // TODO: source is -- https://www.albany.org/things-to-do/albany-heritage-tourism/history/#:~:text=In%201797%2C%20Albany%20became%20the,%2C%20railroads%2C%20and%20international%20trade.
+        QuestionData(id: 1, headline: "New York's Capital", question: "What is the capital of New York state?", choices: ["New York City", "Albany", "Queens"], answer: "Albany", source: "https://www.albany.org/things-to-do/albany-heritage-tourism/history/#:~:text=In%201797%2C%20Albany%20became%20the,%2C%20railroads%2C%20and%20international%20trade", explanation: "In 1797, Albany became the official capital of New York State. Since then, Albany has been a center for banking, railroads, and international trade."),
         
-        QuestionData(id: 2, headline: "The Garden State", question: "Which state is considered as the 'Garden State?'", choices: ["New Jersey", "California", "Rhode Island"], answer: "New Jersey", source: "https://www.state.nj.us/", explanation: "Abraham Browning said that Garden State is an immense barrel, filled with good things to eat and open at both ends, with Pennsylvanians grabbing from one end and New Yorkers from the other. The name stuck ever since."), // TODO: source is -- https://www.state.nj.us/nj/about/facts/nickname/
+        QuestionData(id: 2, headline: "The Garden State", question: "Which state is considered as the 'Garden State?'", choices: ["New Jersey", "California", "Rhode Island"], answer: "New Jersey", source: "https://www.state.nj.us/nj/about/facts/nickname/", explanation: "Abraham Browning said that Garden State is an immense barrel, filled with good things to eat and open at both ends, with Pennsylvanians grabbing from one end and New Yorkers from the other. The name stuck ever since."),
         
-        QuestionData(id: 3, headline: "Live free or die", question: "Which state has their official motto 'Live free or die'?", choices: ["Texas", "Florida", "New Hampshire"], answer: "New Hampshire", source: "https://www.nh.gov", explanation: "The words 'Live Free or Die' written by General John Stark, July 31, 1809, shall be the official motto of the state. It was the 1945 Legislature that gave New Hampshire its official motto and emblem, as World War II approached a successful end.") // TODO: source is -- https://www.nh.gov/almanac/emblem.htm#:~:text=The%20words%20%22Live%20Free%20or,II%20approached%20a%20successful%20ends
+        QuestionData(id: 3, headline: "Live free or die", question: "Which state has their official motto 'Live free or die'?", choices: ["Texas", "Florida", "New Hampshire"], answer: "New Hampshire", source: "https://www.nh.gov/almanac/emblem.htm#:~:text=The%20words%20%22Live%20Free%20or,II%20approached%20a%20successful%20ends", explanation: "The words 'Live Free or Die' written by General John Stark, July 31, 1809, shall be the official motto of the state. It was the 1945 Legislature that gave New Hampshire its official motto and emblem, as World War II approached a successful end.")
     ]
     
     static let testData: [QuestionData] = [
@@ -39,7 +39,7 @@ class DataModel: NSObject {
 }
 
 var score = 0
-var answered = 2 // TODO: bring back to 0
+var answered = 0
 
 func incrementScore() {
     score += 1;
