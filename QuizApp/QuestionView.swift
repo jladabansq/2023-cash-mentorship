@@ -14,7 +14,7 @@ struct QuestionView: View {
         VStack {
             ZStack {
                 // background
-                LinearGradient(gradient: Gradient(colors: [Color("cp-3"), Color("cp-2"), Color("cp-1")]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
+                LinearGradient(gradient: Gradient(colors: [Color("cp-2"), Color("cp-3")]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
                 
                 // everything else
                 VStack {
@@ -62,7 +62,6 @@ struct QuestionView: View {
                     .padding()
                 }
             }
-            
         }
         .disabled(question.isAnswered) // disable if answered
     }
