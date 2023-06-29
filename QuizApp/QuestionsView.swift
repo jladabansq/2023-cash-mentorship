@@ -34,20 +34,38 @@ struct QuestionsView: View {
             
             // show progress if all are answered
             if (answered == data.count) {
-                Button("View my score") {
+                Button("View my final score") {
                     isShowScore.toggle()
                 }
+                .font(.title3)
                 .padding(.bottom, 20)
                 .sheet(isPresented: $isShowScore) {
-                    Text("Final score: \(score) out of \(data.capacity)")
-                        .font(.title3)
-                    
-                    ForEach(data) { question in
-                        HStack {
-                            Text("Question #\(question.id): ")
-                            Text(question.isCorrect ? "Correct" : "Incorrect")
-                                .foregroundColor(question.isCorrect ? Color("cp-green") : Color("cp-red"))
+                    VStack {
+                        // score
+                        VStack(alignment: .leading) {
+                            Text("Final score: \(score) out of \(data.capacity)")
+                                .font(.title3)
+                                .padding(.bottom, 5)
+                            
+                            ForEach(data) { question in
+                                Text("Question #\(question.id): ") + Text(question.isCorrect ? "Correct" : "Incorrect")
+                                    .foregroundColor(question.isCorrect ? Color("cp-green") : Color("cp-red"))
+                            }
                         }
+                        .padding()
+                        .border(.primary, width: 1)
+                        
+                        // greeting
+                        VStack(alignment: .center) {
+                            if (score == data.count) {
+                                Text("Congrats on the perfect score! 🎉")
+                            } else if (score > (data.count/2)) {
+                                Text("Not bad. 👏")
+                            } else {
+                                Text("Better luck next time.")
+                            }
+                        }
+                        .padding(.top, 15)
                     }
                 }
             }
@@ -55,6 +73,7 @@ struct QuestionsView: View {
         .navigationBarBackButtonHidden(true)
     }
 }
+
 
 struct QuestionsView_Previews: PreviewProvider {
     static var previews: some View {
