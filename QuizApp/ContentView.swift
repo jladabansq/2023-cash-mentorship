@@ -19,7 +19,7 @@ struct ContentView: View {
                     
                     // title + CTA
                     VStack {
-                        Text("USA Facts Quiz")
+                        Text("🇺🇸 USA Facts Quiz")
                             .font(.largeTitle)
                             .padding(.bottom, 20)
                         
