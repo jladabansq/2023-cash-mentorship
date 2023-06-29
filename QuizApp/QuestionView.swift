@@ -42,26 +42,34 @@ struct QuestionView: View {
                     }
                     .padding()
                     .border(.primary, width: 1)
+                    .disabled(question.isAnswered) // disable if answered
                     
                     // show result if answered
-                    VStack {
+                    VStack(alignment: .center) {
                         if (question.isAnswered) {
                             HStack {
                                 Image(systemName: question.isCorrect ? "person.fill.checkmark" : "person.fill.xmark")
                                 Text(question.isCorrect ? "You got it right!" : "\(question.userAnswer) is incorrect.")
                             }
-                            .padding(.bottom, 10)
+                            .padding(.bottom, 20)
                             .foregroundColor(question.isCorrect ? Color("cp-green") : Color("cp-red"))
                             
-                            Text(question.explanation)
+                            VStack(alignment: .leading) {
+                                Text(question.explanation)
+                                    .padding(.bottom, 5)
+                                Link(destination: URL(string: "\(question.source)")!, label:{
+                                    Text("Read more on their site")
+                                        .underline()
+                                })
+                            }
                         }
                     }
                     .padding()
                 }
                 .padding()
+                .padding()
             }
         }
-        .disabled(question.isAnswered) // disable if answered
     }
 }
 
