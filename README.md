@@ -1,4 +1,4 @@
-## 2022 Cash Mentorship Program
+## 2023 Cash Mentorship Program
 For this cycle, my goal is to learn developing iOS apps. Initially, I thought of building a 50/30/20 budget app. But then shifted my focus on creating a quiz app.
 
 ### LinkedIn Learning Path
