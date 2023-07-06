@@ -9,6 +9,8 @@ import SwiftUI
 
 struct QuestionView: View {
     @Binding var question: QuestionData
+    @State var isShowAnswer = false
+    @State var userAnswer = ""
     
     var body: some View {
         VStack {
@@ -27,13 +29,17 @@ struct QuestionView: View {
                         ForEach(question.choices, id: \.self) { choice in
                             Button(choice) {
                                 question.isAnswered.toggle() // mark question as answered
-                                question.userAnswer = choice
-                                answered += 1
+                                answered += 1 // increment the number of answered questions
                                 
-                                if (question.userAnswer == question.answer) {
+                                // if the user is correct
+                                if (choice == question.answer) {
                                     incrementScore()
                                     question.isCorrect.toggle()
                                 }
+                                
+                                userAnswer = choice // mark the user's answer
+                                
+                                isShowAnswer.toggle() // toggle to show answer
                             }
                             .italic(question.isAnswered && choice == question.answer ? true : false)
                             .padding()
@@ -43,13 +49,24 @@ struct QuestionView: View {
                     .padding()
                     .border(.primary, width: 1)
                     .disabled(question.isAnswered) // disable if answered
+                    .sheet(isPresented: $isShowAnswer) {
+                        VStack {
+                            Text(userAnswer.elementsEqual(question.answer) ? "You got it right! ✅" : "You are incorrect. The correct answer is \(question.answer).")
+                                .font(.title3)
+                                .padding(.bottom, 10)
+                            Button("Dismiss") {
+                                isShowAnswer = false
+                            }
+                        }
+                        .padding()
+                    }
                     
-                    // show result if answered
+                    //  show result if answered
                     VStack(alignment: .center) {
                         if (question.isAnswered) {
                             HStack {
                                 Image(systemName: question.isCorrect ? "person.fill.checkmark" : "person.fill.xmark")
-                                Text(question.isCorrect ? "You got it right!" : "\(question.userAnswer) is incorrect.")
+                                Text(question.isCorrect ? "You got it right!" : "You are incorrect.")
                             }
                             .padding(.bottom, 20)
                             .foregroundColor(question.isCorrect ? Color("cp-green") : Color("cp-red"))
