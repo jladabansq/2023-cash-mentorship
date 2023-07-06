@@ -64,6 +64,11 @@ struct QuestionsView: View {
                             } else {
                                 Text("Hope you learned new stuff today. 😉")
                             }
+                            
+                            Button("Dismiss") {
+                                isShowScore = false
+                            }
+                            .padding(.top, 10)
                         }
                         .padding(.top, 15)
                     }
