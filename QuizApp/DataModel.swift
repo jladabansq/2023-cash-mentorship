@@ -14,7 +14,6 @@ struct QuestionData: Hashable, Identifiable {
     var choices: [String]
     var answer: String
     var source: String
-    var userAnswer: String = ""
     var explanation: String
     var isAnswered: Bool = false
     var isCorrect: Bool = false
@@ -35,10 +34,10 @@ class DataModel: NSObject {
     
     static let testData: [QuestionData] = [
         // example question where the user answer is incorrect
-        QuestionData(id: 0, headline: "Best NY Pizza Spot", question: "What is the best pizza place in NYC?", choices: ["Lucali", "Dollar pizzas everywhere", "Dominos"], answer: "Dollar pizzas everywhere", source: "Me!", userAnswer: "Dominos", explanation: "Dollar pizzas in NYC are the best, although unhealthy. Stores that sell these types of pizzas are everywhere. They usually serve it as a combo with a choice of your beverage.", isAnswered: true, isCorrect: false),
+        QuestionData(id: 0, headline: "Best NY Pizza Spot", question: "What is the best pizza place in NYC?", choices: ["Lucali", "Dollar pizzas everywhere", "Dominos"], answer: "Dollar pizzas everywhere", source: "Me!", explanation: "Dollar pizzas in NYC are the best, although unhealthy. Stores that sell these types of pizzas are everywhere. They usually serve it as a combo with a choice of your beverage.", isAnswered: true, isCorrect: false),
         
         // example question where the user answer is correct
-        QuestionData(id: 99, headline: "Best San Diego Taco Spot", question: "What is the best taco spot in San Diego?", choices: ["Taco Bell", "Tacos El Gordo", "Nada"], answer: "Tacos El Gordo", source: "Me!", userAnswer: "Tacos El Gordo", explanation: "Well, I just love Tacos El Gordo.", isAnswered: true, isCorrect: true),
+        QuestionData(id: 99, headline: "Best San Diego Taco Spot", question: "What is the best taco spot in San Diego?", choices: ["Taco Bell", "Tacos El Gordo", "Nada"], answer: "Tacos El Gordo", source: "Me!", explanation: "Well, I just love Tacos El Gordo.", isAnswered: true, isCorrect: true),
     ]
 }
 
