@@ -13,20 +13,14 @@ struct ContentView: View {
     var body: some View {
         VStack {
             NavigationView {
-                ZStack {
-                    // background
-                    LinearGradient(gradient: Gradient(colors: [Color("cp-1"), Color("cp-2"), Color("cp-3")]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
+                VStack {
+                    Text("🇺🇸 USA Facts Quiz")
+                        .font(.largeTitle)
+                        .padding(.bottom, 20)
                     
-                    // title + CTA
-                    VStack {
-                        Text("🇺🇸 USA Facts Quiz")
-                            .font(.largeTitle)
-                            .padding(.bottom, 20)
-                        
-                        NavigationLink(destination: QuestionsView(data: $data)) {
-                            Text("Start")
-                                .font(.title2)
-                        }
+                    NavigationLink(destination: QuestionsView(data: $data)) {
+                        Text("Start")
+                            .font(.title2)
                     }
                 }
             }
