@@ -13,6 +13,7 @@ struct QuestionData: Hashable, Identifiable {
     var question: String
     var choices: [String]
     var answer: String
+    var userAns: String = ""
     var image: String = ""
     var source: String
     var explanation: String

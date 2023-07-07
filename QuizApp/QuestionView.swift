@@ -32,11 +32,13 @@ struct QuestionView: View {
                                 question.isCorrect.toggle()
                             }
                             
-                            userAnswer = choice // mark the user's answer
+                            // mark the user's answer
+                            userAnswer = choice
+                            question.userAns = choice
                             
                             isShowAnswer.toggle() // toggle to show answer
                         }
-                        .italic(question.isAnswered && choice == question.answer ? true : false)
+                        .bold(question.isAnswered && question.userAns == choice ? true : false)
                         .padding()
                         .foregroundColor(Color("AccentColor"))
                     }
