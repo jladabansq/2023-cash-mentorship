@@ -13,6 +13,7 @@ struct QuestionData: Hashable, Identifiable {
     var question: String
     var choices: [String]
     var answer: String
+    var image: String = ""
     var source: String
     var explanation: String
     var isAnswered: Bool = false
@@ -21,15 +22,15 @@ struct QuestionData: Hashable, Identifiable {
 
 class DataModel: NSObject {
     static let data: [QuestionData] = [
-        QuestionData(id: 1, headline: "New York's Capital", question: "What is the capital of New York state?", choices: ["New York City", "Albany", "Queens"], answer: "Albany", source: "https://www.albany.org/things-to-do/albany-heritage-tourism/history/#:~:text=In%201797%2C%20Albany%20became%20the,%2C%20railroads%2C%20and%20international%20trade", explanation: "In 1797, Albany became the official capital of New York State. Since then, Albany has been a center for banking, railroads, and international trade."),
+        QuestionData(id: 1, headline: "New York's Capital", question: "What is the capital of New York state?", choices: ["New York City", "Albany", "Queens"], answer: "Albany", image: "ny", source: "https://www.albany.org/things-to-do/albany-heritage-tourism/history/#:~:text=In%201797%2C%20Albany%20became%20the,%2C%20railroads%2C%20and%20international%20trade", explanation: "In 1797, Albany became the official capital of New York State. Since then, Albany has been a center for banking, railroads, and international trade."),
         
-        QuestionData(id: 2, headline: "The First State", question: "Which state is known by this nickname: 'The First State'?", choices: ["Virginia", "Pennsylvania", "Delaware"], answer: "Delaware", source: "https://delaware.gov/guides/facts/#:~:text=%22The%20First%20State%22,to%20ratify%20the%20U.S.%20Constitution.", explanation: "Delaware is known by this nickname due to the fact that on December 7, 1787, it became the first of the 13 original states to ratify the U.S. Constitution."),
+        QuestionData(id: 2, headline: "The First State", question: "Which state is known by this nickname: 'The First State'?", choices: ["Virginia", "Pennsylvania", "Delaware"], answer: "Delaware", image: "de", source: "https://delaware.gov/guides/facts/#:~:text=%22The%20First%20State%22,to%20ratify%20the%20U.S.%20Constitution.", explanation: "Delaware is known by this nickname due to the fact that on December 7, 1787, it became the first of the 13 original states to ratify the U.S. Constitution."),
         
-        QuestionData(id: 3, headline: "No Income Tax", question: "Which of these states have no income tax?", choices: ["Washington", "Alabama", "Arkansas"], answer: "Washington", source: "https://dor.wa.gov/taxes-rates/income-tax", explanation: "Washington state does not have a personal or corporate income tax. However, people or businesses that engage in business in Washington are subject to business and occupation (B&O) and/or public utility tax."),
+        QuestionData(id: 3, headline: "No Income Tax", question: "Which of these states have no income tax?", choices: ["Washington", "Alabama", "Arkansas"], answer: "Washington", image: "wa", source: "https://dor.wa.gov/taxes-rates/income-tax", explanation: "Washington state does not have a personal or corporate income tax. However, people or businesses that engage in business in Washington are subject to business and occupation (B&O) and/or public utility tax."),
         
-        QuestionData(id: 4, headline: "'Live free or die'", question: "Which state has their official motto 'Live free or die'?", choices: ["Texas", "Florida", "New Hampshire"], answer: "New Hampshire", source: "https://www.nh.gov/almanac/emblem.htm#:~:text=The%20words%20%22Live%20Free%20or,II%20approached%20a%20successful%20ends", explanation: "The words 'Live Free or Die' written by General John Stark, July 31, 1809, shall be the official motto of the state. It was the 1945 Legislature that gave New Hampshire its official motto and emblem, as World War II approached a successful end."),
+        QuestionData(id: 4, headline: "'Live free or die'", question: "Which state has their official motto 'Live free or die'?", choices: ["Texas", "Florida", "New Hampshire"], answer: "New Hampshire", image: "nh", source: "https://www.nh.gov/almanac/emblem.htm#:~:text=The%20words%20%22Live%20Free%20or,II%20approached%20a%20successful%20ends", explanation: "The words 'Live Free or Die' written by General John Stark, July 31, 1809, shall be the official motto of the state. It was the 1945 Legislature that gave New Hampshire its official motto and emblem, as World War II approached a successful end."),
         
-        QuestionData(id: 5, headline: "The Garden State", question: "Which state is considered as the 'Garden State?'", choices: ["New Jersey", "California", "Rhode Island"], answer: "New Jersey", source: "https://www.state.nj.us/nj/about/facts/nickname/", explanation: "Abraham Browning said that Garden State is an immense barrel, filled with good things to eat and open at both ends, with Pennsylvanians grabbing from one end and New Yorkers from the other. The name stuck ever since."),
+        QuestionData(id: 5, headline: "The Garden State", question: "Which state is considered as the 'Garden State?'", choices: ["New Jersey", "California", "Rhode Island"], answer: "New Jersey", image: "nj", source: "https://www.state.nj.us/nj/about/facts/nickname/", explanation: "Abraham Browning said that Garden State is an immense barrel, filled with good things to eat and open at both ends, with Pennsylvanians grabbing from one end and New Yorkers from the other. The name stuck ever since."),
     ]
     
     static let testData: [QuestionData] = [
