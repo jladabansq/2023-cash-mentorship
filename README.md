@@ -25,5 +25,7 @@ I decided to use [this](https://www.linkedin.com/learning/paths/get-started-with
  <br/>
 
 **Quiz App Demo**
-https://github.com/jladabansq/2023-cash-mentorship/assets/91980291/ac909663-6757-42a5-93cb-0354a110ffbe
+https://github.com/jladabansq/2023-cash-mentorship/assets/91980291/a760f4cc-e809-4cc7-a046-38029a5d9a63
+
+
 
